@@ -1,0 +1,45 @@
+#include "addbook.h"
+#include "ui_addbook.h"
+#include "books.h"
+#include "ui_books.h"
+#include "books.cpp"
+AddBook::AddBook(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::AddBook)
+{
+    ui->setupUi(this);
+    Books t;
+    QString a,g,nameAvtor,surnameAvtor;
+    int n,year;
+
+               a=b.a[size_author-1].mybook[sizebook-1].name;
+               nameAvtor=b.a[sizebook-1].name;
+               surnameAvtor=b.a[sizebook-1].surname;
+               year=b.a[sizebook-1].mybook[size_author-1].d.year;
+               n=b.a[sizebook-1].mybook[size_author-1].number;
+               g=b.a[sizebook-1].mybook[size_author-1].genre;
+              //  QTableWidgetItem *pCell = ui->tableWidget->item(i, j);
+                               pCell = new QTableWidgetItem;
+                               ui->tableWidget->setItem(i, j, pCell);
+                               if (j==0)
+                               pCell->setText(a);
+                               else if (j==1)
+                               {
+                                    pCell->setText(nameAvtor +" "+ surnameAvtor);
+                               }
+                                    else if(j==2)
+                                   pCell->setText(QString::number(year));
+                                    else if(j==3)
+                                   pCell->setText(g);
+                               else if(j==4)
+                             pCell->setText(QString::number(n));
+
+
+
+
+}
+
+AddBook::~AddBook()
+{
+    delete ui;
+}
